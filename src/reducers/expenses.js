@@ -22,6 +22,8 @@ export default (state = expensesReducerDefautState, action) => {
                     return expense;
                 }
             })
+        case 'SET_EXPENSES':
+            return action.expenses
         default:
             return state;
     }
