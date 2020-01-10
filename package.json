@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate",
+  "name": "contacts-app",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Svetoslav Savov",
@@ -28,7 +28,7 @@
     "history": "4.9.0",
     "jslint": "^0.12.1",
     "moment": "2.18.1",
-    "node-sass": "4.5.3",
+    "node-sass": "^4.13.0",
     "normalize.css": "7.0.0",
     "numeral": "2.0.6",
     "raf": "3.3.2",
