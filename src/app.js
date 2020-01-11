@@ -5,10 +5,9 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
 import { login, logout } from './actions/auth';
-import 'react-dates/lib/css/_datepicker.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
@@ -29,16 +28,15 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        store.dispatch(login(user.uid));
-       renderApp();
-       if (history.location.pathname === '/') {
-           history.push('/dashboard')
-       }
-    } else {
-        store.dispatch(logout());
-        renderApp();
-        history.push('/');
+const user = JSON.parse(localStorage.getItem("user"));
+if (user) {
+    store.dispatch(login(user));
+    renderApp();
+    if (history.location.pathname === "/") {
+        history.push("/profile");
     }
-})
+} else {
+    store.dispatch(logout());
+    renderApp();
+    history.push("/");
+}

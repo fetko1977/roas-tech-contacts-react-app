@@ -2,10 +2,11 @@ export default (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN':
             return {
-               uid: action.uid
+               user: action.user
             };
         case 'LOGOUT':
-            return {}
+            localStorage.removeItem('user');
+            return {};
         default:
             return state;
     }

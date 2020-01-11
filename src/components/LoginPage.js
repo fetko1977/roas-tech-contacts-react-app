@@ -1,19 +1,84 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { startLogin } from '../actions/auth';
+import { login } from '../actions/auth';
+import { Form, Button, FormGroup, FormControl } from "react-bootstrap";
 
-export const LoginPage = ({ startLogin }) => (
-    <div className="box-layout">
-        <div className="box-layout__box">
-            <h1 className="box-layout__title">Boilerplate</h1>
-            <p>Tag line for app.</p>
-            <button className="btn btn--blue" onClick={startLogin}>Login with Google</button>
-        </div>
-    </div>
-);
+export class LoginPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          username: '',
+          password: '',
+          error: false
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-const mapDispatchToProps = (dispatch) => ({
-    startLogin: () => dispatch(startLogin())
+    handleSubmit (event) {
+        event.preventDefault();
+        const { username, password } = this.state;
+        const user = { username, password };
+
+        if (user.username === "Admin" && user.password === "test1A") {
+            this.setState({ username: '', password: '', error: false})
+            localStorage.setItem('user', JSON.stringify(user));
+            this.props.login(user);
+            this.props.history.push('/profile');
+            return;
+        }
+
+        return this.setState({ error: true });
+    }
+
+    render() {
+        let { username, password } = this.state;
+        let { error } = this.props;
+        return (
+          <div className="container">
+            <div className="row">
+              <h1 className="box-layout__title">Contacts Application</h1>
+              <p>Please use the form below to login.</p>
+              <div className="Login">
+                <Form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="email">
+                    <Form.Label>Username</Form.Label>
+                    <FormControl
+                      autoFocus
+                      type="text"
+                      value={username}
+                      onChange={e =>
+                        this.setState({ username: e.target.value })
+                      }
+                    />
+                  </FormGroup>
+                  <FormGroup controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <FormControl
+                      value={password}
+                      onChange={e => this.setState({ password: e.target.value })}
+                      type="password"
+                    />
+                  </FormGroup>
+                  <Button block type="submit">
+                    Login
+                  </Button>
+                  { error && <div>Credentials are not valid.</div>}
+                </Form>
+              </div>
+            </div>
+          </div>
+        );
+    }
+};
+
+const mapStateToProps = state => ({
+  username: state.username,
+  password: state.password,
+  error: state.erorr
 });
 
-export default connect(undefined, mapDispatchToProps)(LoginPage);
+const mapDispatchToProps = (dispatch) => ({
+    login: (user) => dispatch(login(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
