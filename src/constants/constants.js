@@ -1,1 +1,1 @@
-export const BASE_URL = process.env.BASE_API_URL || 'http://localhost:3000/api/v1';
+export const BASE_URL = 'https: //contactsbackend.herokuapp.com/api/v1';
