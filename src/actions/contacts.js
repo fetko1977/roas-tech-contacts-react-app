@@ -14,8 +14,8 @@ export const startGetContacts = () => {
                 "Content-Type": "application/json"
             }}).then((response) => {
             dispatch(getContacts(response.data.data));
-        }).catch((response) => {
-            dispatch(getContacts(response.data.data));
+        }).catch((err) => {
+            console.log(err);
         })
     }
 }
