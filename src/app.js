@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import LoadingPage from './components/LoadingPage';
+import { startGetContacts } from './actions/contacts';
 
 const store = configureStore();
 
@@ -31,6 +32,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 const user = JSON.parse(localStorage.getItem("user"));
 if (user) {
     store.dispatch(login(user));
+    store.dispatch(startGetContacts());
     renderApp();
     if (history.location.pathname === "/") {
         history.push("/profile");

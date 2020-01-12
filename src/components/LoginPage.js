@@ -31,14 +31,14 @@ export class LoginPage extends Component {
     }
 
     render() {
-        let { username, password } = this.state;
-        let { error } = this.props;
+        let { username, password, error } = this.state;
         return (
           <div className="container">
             <div className="row">
               <h1 className="box-layout__title">Contacts Application</h1>
               <p>Please use the form below to login.</p>
               <div className="Login">
+                { error && <div>Credentials are not valid.</div>}
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup controlId="email">
                     <Form.Label>Username</Form.Label>
@@ -47,7 +47,7 @@ export class LoginPage extends Component {
                       type="text"
                       value={username}
                       onChange={e =>
-                        this.setState({ username: e.target.value })
+                        this.setState({ username: e.target.value, error: false })
                       }
                     />
                   </FormGroup>
@@ -55,14 +55,13 @@ export class LoginPage extends Component {
                     <Form.Label>Password</Form.Label>
                     <FormControl
                       value={password}
-                      onChange={e => this.setState({ password: e.target.value })}
+                      onChange={e => this.setState({ password: e.target.value, error: false })}
                       type="password"
                     />
                   </FormGroup>
                   <Button block type="submit">
                     Login
                   </Button>
-                  { error && <div>Credentials are not valid.</div>}
                 </Form>
               </div>
             </div>

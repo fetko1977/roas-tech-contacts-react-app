@@ -1,0 +1,21 @@
+.contacts {
+    .container {
+        .row {
+            div {
+                padding: 0;
+            }
+
+            .contacts__title {
+                padding: 0 15px;
+            }
+
+            .contacts__content {
+                padding: 0 15px;
+
+                .contacts__contact-item {
+                    border-bottom: 1px solid $dark-grey;
+                }
+            }
+        }
+    }
+}

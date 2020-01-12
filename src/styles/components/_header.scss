@@ -1,18 +1,70 @@
 .header {
-    background: $dark-blue;
-}
+    background: $dark-grey;
+    .container {
+        .row {
+            .navbar-brand {
+                img {
+                    width: 100%;
+                    max-width: 50px;
+                }
+            }
 
-.header__title {
-    color: white;
-    text-decoration: none;
-    h1 {
-        margin: 0;
+            .navbar-nav {
+                a {
+                    color: $white;
+                }
+            }
+
+            .header__logo-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+
+                @media (min-width: $desktop-breakpoint) {
+                    padding: 0 15px;
+                }
+
+                .navbar-toggler {
+                    border: none;
+                    color: $white;
+                }
+            }
+
+            .header__nav-wrapper {
+                .nav-link {
+                    @media (min-width: $desktop-breakpoint) {
+                        padding: 0 20px;
+                        border-right: 1px solid $off-white;
+                    }
+                }
+
+                button.nav-link {
+                    background: transparent;
+                    border: none;
+                    color: $white;
+                    border-right: none;
+                    padding-right: 0;
+                    text-align: left;
+
+                    &:hover,
+                    &:active {
+                        outline: 0
+                    }
+
+                    @media (min-width: $desktop-breakpoint) {
+                        text-align: center;
+                    }
+                }
+
+                .navbar-collapse {
+                    border-top: 1px solid $off-white;
+                    padding: 10px 0;
+                    @media (min-width: $desktop-breakpoint) {
+                        border-top: none;
+                    }
+                }
+            }
+        }
     }
-}
-
-.header__content {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: $s-size;
 }
