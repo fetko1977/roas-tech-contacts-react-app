@@ -16,6 +16,7 @@ export const startGetContacts = () => {
             dispatch(getContacts(response.data.data));
         }).catch((err) => {
             console.log(err);
+            dispatch(getContacts(err));
         })
     }
 }
