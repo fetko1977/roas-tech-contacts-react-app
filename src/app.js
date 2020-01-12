@@ -11,6 +11,10 @@ import './styles/styles.scss';
 import LoadingPage from './components/LoadingPage';
 import { startGetContacts } from './actions/contacts';
 
+// Temp debug code, remove after
+import axios from 'axios';
+import { BASE_URL } from './constants/constants';
+
 const store = configureStore();
 
 const jsx = (
@@ -31,6 +35,16 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 const user = JSON.parse(localStorage.getItem("user"));
 if (user) {
+    axios.get(`${BASE_URL}/contacts`, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then((response) => {
+        console.log(response);
+    }).catch((err) => {
+        console.log(err);
+    });
+
     store.dispatch(login(user));
     store.dispatch(startGetContacts());
     renderApp();
