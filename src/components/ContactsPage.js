@@ -44,8 +44,8 @@ export class ContactsPage extends Component {
                   <Col xs={12}  className="contacts__content">
                     {contacts.length > 0 ? (
                       contacts.map(contact => (
-                        <Col xs={12} key={contact.id} className="contacts__contact-item float-left mb-3 justify-content-center">
-                          <Col xs={12} sm={6} className="float-left">
+                        <Col xs={12} key={contact.id} className="contacts__contact-item float-left mb-3">
+                          <Col>
                             <p>
                               <strong>Name:</strong> {contact.name}
                             </p>
@@ -54,7 +54,7 @@ export class ContactsPage extends Component {
                               {contact.phone}
                             </p>
                           </Col>
-                          <Col xs={12} sm={6} className="d-flex float-left justify-content-end">
+                          <Col className="d-flex justify-content-end">
                             <Button
                               variant="primary"
                               onClick={() => this.handleButtonClick(contact.id)}

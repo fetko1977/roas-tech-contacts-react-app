@@ -35,34 +35,38 @@ export class LoginPage extends Component {
         return (
           <div className="container">
             <div className="row">
-              <h1 className="box-layout__title">Contacts Application</h1>
-              <p>Please use the form below to login.</p>
-              <div className="Login">
-                { error && <div>Credentials are not valid.</div>}
-                <Form onSubmit={this.handleSubmit}>
-                  <FormGroup controlId="email">
-                    <Form.Label>Username</Form.Label>
-                    <FormControl
-                      autoFocus
-                      type="text"
-                      value={username}
-                      onChange={e =>
-                        this.setState({ username: e.target.value, error: false })
-                      }
-                    />
-                  </FormGroup>
-                  <FormGroup controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <FormControl
-                      value={password}
-                      onChange={e => this.setState({ password: e.target.value, error: false })}
-                      type="password"
-                    />
-                  </FormGroup>
-                  <Button block type="submit">
-                    Login
-                  </Button>
+              <div className="login-wrapper">
+                <div className="login-wrapper__header">
+                  <h1 className="login-wrapper__title">Contacts Application</h1>
+                  <p>Please use the form below to login.</p>
+                </div>
+                <div className="login-wrapper__form-wrapper">
+                  { error && <div>Credentials are not valid.</div>}
+                  <Form onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="email">
+                      <Form.Label>Username</Form.Label>
+                      <FormControl
+                        autoFocus
+                        type="text"
+                        value={username}
+                        onChange={e =>
+                          this.setState({ username: e.target.value, error: false })
+                        }
+                      />
+                    </FormGroup>
+                    <FormGroup controlId="password">
+                      <Form.Label>Password</Form.Label>
+                      <FormControl
+                        value={password}
+                        onChange={e => this.setState({ password: e.target.value, error: false })}
+                        type="password"
+                      />
+                    </FormGroup>
+                    <Button block type="submit" className="btn--blue">
+                      Login
+                    </Button>
                 </Form>
+              </div>
               </div>
             </div>
           </div>

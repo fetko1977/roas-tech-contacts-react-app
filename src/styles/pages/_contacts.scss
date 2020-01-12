@@ -14,6 +14,12 @@
 
                 .contacts__contact-item {
                     border-bottom: 1px solid $dark-grey;
+                    display: flex;
+                    align-items: center;
+
+                    &:last-child {
+                        border: none;
+                    }
                 }
             }
         }
