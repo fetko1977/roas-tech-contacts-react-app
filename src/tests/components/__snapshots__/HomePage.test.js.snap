@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render HomePage correctly 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <Col
+        xs={12}
+      >
+        <h1>
+          Home
+        </h1>
+      </Col>
+      <Col
+        lg={3}
+        md={5}
+        sm={8}
+        xs={12}
+      >
+        <Card
+          body={false}
+          className="p-3"
+        >
+          <CardImg
+            src="images/female-user-icon.png"
+            variant="top"
+          />
+          <CardBody>
+            <CardTitle
+              style={
+                Object {
+                  "fontSize": 20,
+                }
+              }
+            >
+              Admin
+            </CardTitle>
+            <CardSubtitle
+              className="mb-2 text-muted"
+            >
+              Logged in
+            </CardSubtitle>
+            <CardText>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </CardText>
+            <Button
+              active={false}
+              disabled={false}
+              onClick={[MockFunction]}
+              type="button"
+              variant="primary"
+            >
+              Logout
+            </Button>
+          </CardBody>
+        </Card>
+      </Col>
+    </div>
+  </div>
+</div>
+`;

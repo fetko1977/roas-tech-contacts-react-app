@@ -5,25 +5,83 @@ exports[`should render Header correctly 1`] = `
   className="header"
 >
   <div
-    className="content-container"
+    className="container"
   >
     <div
-      className="header__content"
+      className="row"
     >
-      <Link
-        className="header__title"
-        to="/dashboard"
+      <Col
+        className="p-0"
       >
-        <h1>
-          Boilerplate
-        </h1>
-      </Link>
-      <button
-        className="btn btn--link"
-        onClick={[Function]}
-      >
-        Logout
-      </button>
+        <Navbar
+          className="justify-content-center"
+          collapseOnSelect={false}
+          expand="lg"
+          variant="dark"
+        >
+          <Col
+            className="header__logo-wrapper"
+            lg={2}
+            xs={12}
+          >
+            <NavbarBrand
+              href="/home"
+            >
+              <Image
+                fluid={false}
+                rounded={false}
+                roundedCircle={false}
+                src="images/contacts_logo.png"
+                thumbnail={false}
+              />
+            </NavbarBrand>
+            <NavbarToggle
+              aria-controls="basic-navbar-nav"
+              label="Toggle navigation"
+            />
+          </Col>
+          <Col
+            className="header__nav-wrapper"
+            lg={10}
+            xs={12}
+          >
+            <NavbarCollapse
+              id="basic-navbar-nav"
+            >
+              <Nav
+                className="ml-auto"
+                fill={false}
+                justify={false}
+              >
+                <NavLink
+                  className="nav-link"
+                  to="/home"
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  className="nav-link"
+                  to="/profile"
+                >
+                  Profile
+                </NavLink>
+                <NavLink
+                  className="nav-link"
+                  to="/contacts"
+                >
+                  Contacts
+                </NavLink>
+                <button
+                  className="nav-link"
+                  onClick={[MockFunction]}
+                >
+                  Logout
+                </button>
+              </Nav>
+            </NavbarCollapse>
+          </Col>
+        </Navbar>
+      </Col>
     </div>
   </div>
 </header>

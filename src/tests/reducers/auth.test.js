@@ -7,24 +7,30 @@ test('should set default state', () => {
 });
 
 test('should set state when user loggedIn', () => {
-    const uid = 'asfas3453453';
+    const user = {
+        username: 'Admin',
+        password: 'test1A'
+    };
     
     const action = {
         type: 'LOGIN',
-        uid
+        user
     }
     const state = authReducer({}, action);
 
-    expect(state).toEqual({ uid });
+    expect(state).toEqual({ user });
 });
 
 test('should set state when user loggedOut', () => {
-    const uid = 'asfas3453453';
+    const user = {
+        username: 'Admin',
+        password: 'test1A'
+    };
     
     const action = {
         type: 'LOGOUT'
     }
-    const state = authReducer({ uid }, action);
+    const state = authReducer({ user }, action);
 
     expect(state).toEqual({});
 });

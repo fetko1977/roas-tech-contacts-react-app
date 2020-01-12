@@ -2,25 +2,73 @@
 
 exports[`should render LoginPage correctly 1`] = `
 <div
-  className="box-layout"
+  className="container"
 >
   <div
-    className="box-layout__box"
+    className="row"
   >
-    <h1
-      className="box-layout__title"
+    <div
+      className="login-wrapper"
     >
-      Boilerplate
-    </h1>
-    <p>
-      Tag line for app.
-    </p>
-    <button
-      className="btn btn--blue"
-      onClick={[Function]}
-    >
-      Login with Google
-    </button>
+      <div
+        className="login-wrapper__header"
+      >
+        <h1
+          className="login-wrapper__title"
+        >
+          Contacts Application
+        </h1>
+        <p>
+          Please use the form below to login.
+        </p>
+      </div>
+      <div
+        className="login-wrapper__form-wrapper"
+      >
+        <Form
+          inline={false}
+          onSubmit={[Function]}
+        >
+          <FormGroup
+            controlId="email"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Username
+            </FormLabel>
+            <FormControl
+              autoFocus={true}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </FormGroup>
+          <FormGroup
+            controlId="password"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              Password
+            </FormLabel>
+            <FormControl
+              onChange={[Function]}
+              type="password"
+              value=""
+            />
+          </FormGroup>
+          <button
+            className="btn--blue"
+            type="submit"
+          >
+            Login
+          </button>
+        </Form>
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
-import { Form, Button, FormGroup, FormControl } from "react-bootstrap";
+import { Form, FormGroup, FormControl, Button } from "react-bootstrap";
 
 export class LoginPage extends Component {
     constructor(props) {
@@ -62,7 +62,7 @@ export class LoginPage extends Component {
                         type="password"
                       />
                     </FormGroup>
-                    <Button block type="submit" className="btn--blue">
+                    <Button type="submit" className="btn--blue">
                       Login
                     </Button>
                 </Form>
