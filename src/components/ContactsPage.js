@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Col, Button, Modal, Tabs, Tab } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIdCardAlt } from "@fortawesome/free-solid-svg-icons";
+import { startGetContacts } from "../actions/contacts";
 
 export class ContactsPage extends Component {
     constructor(props) {
@@ -13,6 +14,10 @@ export class ContactsPage extends Component {
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleClose = this.handleClose.bind(this);
+    }
+
+    componentDidMount() {
+      this.props.startGetContacts();
     }
 
     handleButtonClick (id) {
@@ -128,5 +133,9 @@ export class ContactsPage extends Component {
 const mapStateToProps = state => ({
     contacts: state.contacts
 });
+
+const mapDispatchToProps = dispatch => ({
+  startGetContacts: () => dispatch(startGetContacts())
+})
  
-export default connect(mapStateToProps, undefined)(ContactsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsPage);
