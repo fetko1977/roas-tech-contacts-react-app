@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL } from  '../constants/constants';
+import { BASE_URL_DEV } from  '../constants/constants';
 
 //GET CONTACTS
 export const getContacts = contacts => ({
@@ -9,7 +9,7 @@ export const getContacts = contacts => ({
 
 export const startGetContacts = () => {
     return dispatch => {
-        axios.get(`${BASE_URL}/contacts`, {
+        axios.get(`${BASE_URL_DEV}/contacts`, {
             headers: {
                 "Content-Type": "application/json"
             }}).then((response) => {
