@@ -44,7 +44,7 @@ export class ContactsPage extends Component {
               <div className="container">
                 <div className="row">
                   <Col xs={12} className="contacts__title">
-                    <h1>Contacts:</h1>
+                    <h1>Contacts</h1>
                   </Col>
                   <Col xs={12}  className="contacts__content">
                     {contacts.length > 0 ? (
@@ -70,7 +70,10 @@ export class ContactsPage extends Component {
                         </Col>
                       ))
                     ) : (
-                      <Col>No contacts.</Col>
+                      <Col className="d-flex justify-content-between align-items-center contacts-loader-wrapper">
+                        <span>Retrieving contacts. Please wait...</span>
+                        <img className="loader__image" src="/images/loader.gif" alt=""/>
+                      </Col>
                     )}
                   </Col>
                 </div>
